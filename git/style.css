@@ -1,0 +1,233 @@
+body{
+	background: #EEEEEE;
+	font-family: Arial, Lato;
+}
+li{
+  list-style: none;
+}
+.box2 h2{
+	min-height: 2.4em;
+	font-size: 1.2em;
+	line-height: 1.5em;
+
+}
+#yellow_box{
+	background-color: #FAD84A;
+	width: 3em;
+	height: 3em;
+	z-index: 1;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+.header h1{
+	position: absolute;
+	margin-left:  0.5em;
+	margin-top:  0.5em;
+	font-size: 2em;
+}
+#allproducts hr{
+	display: block;
+	height: 1px;
+	align: center;
+	border-top: 2px solid #EB3324;
+	width: 20%;
+}
+aside hr{
+	margin: 1em;
+	border-bottom-width:1px;
+	border-bottom-style: solid;
+	border-bottom-color:#CCCCCC;
+}
+aside {
+ float:left;
+ padding-inline-start: 10px;
+}
+
+#par1{
+font-style: oblique;
+font-size: 1em;
+}
+#par2{
+font-style: italic;
+color:#9A9999;
+}
+#par2 a{
+	color: #EB3324;
+}
+#par2 a:visited{
+	color: BLACK;
+}
+#del{
+ text-decoration:none;
+ text-align:center;
+ font-size: 1em;
+ padding:5px;
+ border:none;
+ -webkit-border-radius:10px;
+ -moz-border-radius:10px;
+ border-radius: 10px;
+ font-weight:bold;
+ color:#ffffff;
+ background-color:#aaaaaa;
+ margin: auto;
+  position: absolute;
+}
+#del:active{
+ background-color:#49A6A6;
+}
+#howpages{
+	width: 4em;
+	height: 2em;
+	border: none;
+}
+.container {
+  display: grid;
+	grid-template-areas:"header" "sorting" "content" "footer";
+	grid-template-columns: 1fr;
+	grid-template-rows: 100px 1fr 100px;}
+}
+
+.header {
+  grid-area: header;
+	border-bottom-width:1px;
+	border-bottom-style: dashed;
+	border-bottom-color:#888;
+}
+.sorting {
+  grid-area: sorting;
+}
+.content {
+  grid-area: content;
+	padding-top: 30px;
+	margin: 30px;
+}
+footer{
+	grid-area: footer;
+}
+
+/*for product list*/
+#allproducts{
+ display: grid;
+ margin-left: auto;
+ margin-right: auto;
+ text-align: center;
+ grid-template-columns: repeat(var(--repeat, auto-fit), minmax(calc(250 * 1px) , 1fr));
+ grid-gap: 20px;
+  --repeat: 1;
+ grid-area: grid-allproducts;
+}
+
+/*for numbered list*/
+.product-number {
+  counter-reset: myCounter2; }
+.product-number > div{
+  counter-increment: myCounter2;
+
+}
+.product-number > div:before {
+  content: counter(myCounter2);
+	/* display: table-cell; */
+  vertical-align: top;
+	position: absolute;
+  color: #D8D7D7;
+
+	font-size: 3em;
+  vertical-align: middle;
+}
+
+/*for products-overview*/
+.grid-product-overview{
+	display: grid;
+	  min-width: 250px;
+	  height: 100%;
+		margin: 10px;
+	  grid-template-areas: "box1 box2";
+	  grid-template-columns: 1fr 1fr;
+	  grid-template-rows: 1fr;
+}
+.box1 {
+  grid-area: box1;
+
+}
+.box2 {
+  grid-area: box2;}
+/*for img*/
+input[type="checkbox"] {
+  display: none;
+}
+
+input + label {
+  display: flex;
+	max-width: 100%;
+  min-height: 100%;
+  border: none;
+  padding: 0;
+  margin: 0 0 0 3em;
+  outline: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+ /* transition: .001s; */
+}
+input:checked + label {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+	margin: 0;
+  left: 0;
+  top: 0;
+  background-color: rgba(255,255,255,.8);
+  background-size: auto;
+  z-index: 99999;
+
+}
+
+
+/*for media*/
+@media (min-width: 760px) and (max-width: 1023px){
+	.grid-product-overview{
+		grid-template-areas: "box1"
+												 "box2";
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;}
+	#allproducts {
+		--repeat: 2;}
+}
+@media (min-width: 1024px) and (max-width: 1679px){
+	.container {
+		grid-template-areas: "header header"
+	  "sorting content"
+		"footer footer";
+	  grid-template-columns: 1fr 6fr;
+	  grid-template-rows: 100px 1fr 100px;}
+	.grid-product-overview{
+			  grid-template-areas: "box1"
+				"box2";
+			  grid-template-columns: 1fr;
+			  grid-template-rows: 1fr 1fr;}
+	#allproducts {
+		--repeat: 2;}
+}
+@media (min-width: 1680px){
+	.container {
+		grid-template-areas: "header header"
+	  "sorting content"
+		"footer footer";
+	  grid-template-columns: 1fr 5fr;
+	  grid-template-rows: 100px 1fr 100px;}
+	.grid-product-overview{
+			  grid-template-areas: "box1"
+				"box2";
+			  grid-template-columns: 1fr;
+			  grid-template-rows: 1fr 1fr;}
+	#allproducts {
+		--repeat: 3;}
+}
